@@ -93,6 +93,9 @@ public class Ricochet implements ActionListener, KeyListener {
 
             g.setFont(new Font("Arial", 1, 30));
             g.drawString("FINAL SCORE:      " + ship.score, width / 2 - 145, height / 2);
+
+            g.setFont(new Font("Arial", 1, 20));
+            g.drawString("press SPACE to play again!", width / 2 - 140, height / 2 + 100    );
         }
 
         if (gameStatus == 4){

@@ -40,7 +40,7 @@ public class ball{
             this.motionY = -speedBall;
             this.motionX = -3 + random.nextInt(6);
             if (this.motionX == 0) {
-                motionX = random.nextInt(4);
+                motionX = 1 + random.nextInt(3);
             }
 
 

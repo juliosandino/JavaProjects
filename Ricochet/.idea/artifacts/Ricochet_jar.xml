@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Ricochet:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Ricochet_jar</output-path>
+    <root id="archive" name="Ricochet.jar">
+      <element id="module-output" name="Ricochet" />
+    </root>
+  </artifact>
+</component>
