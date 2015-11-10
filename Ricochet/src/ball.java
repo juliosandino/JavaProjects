@@ -7,7 +7,7 @@ public class ball{
 
     public int motionX, motionY;
 
-    public int speedball = 2;
+    public int speedBall = 2;
 
     public Random random;
 
@@ -15,7 +15,7 @@ public class ball{
         this.random = new Random();
         this.x = ricochet.width / 2 - this.width / 2 - 15;
         this.y = ricochet.height / 2 - this.height / 2 - 39;
-        this.motionY = speedball;
+        this.motionY = speedBall;
         this.motionX = 0;
 
 
@@ -24,21 +24,21 @@ public class ball{
     public void update(Ship ship){
 
         if (ship.score > 5 && ship.score <= 10) {
-            speedball = 3;
+            speedBall = 3;
         }
         else if (ship.score > 10 && ship.score <= 20) {
-            speedball = 4;
+            speedBall = 4;
         }
         else if (ship.score > 20 && ship.score <= 30) {
-            speedball = 6;
+            speedBall = 6;
         }
         else if (ship.score > 40) {
-            speedball = 10;
+            speedBall = 10;
             ship.speed = 10;
         }
 
         if(checkCollision(ship) == 1 ){
-            this.motionY = -speedball;
+            this.motionY = -speedBall;
                 this.motionX = -3 + random.nextInt(6);
                 if (this.motionX == 0) {
                     motionX = random.nextInt(4);
@@ -49,7 +49,7 @@ public class ball{
         }
 
         else if(checkCollision(ship) == 2){
-            this.motionY = speedball;
+            this.motionY = speedBall;
         }
 
         else if(checkCollision(ship) == 3){
