@@ -24,7 +24,7 @@ public class Ricochet implements ActionListener, KeyListener {
 
     public Ricochet(){
 
-        Timer timer = new Timer(20, this);
+        Timer timer = new Timer(10, this);
         JFrame frame = new JFrame("Ricochet");
         render = new Renderer();
 
@@ -96,6 +96,10 @@ public class Ricochet implements ActionListener, KeyListener {
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, 10));
             g.drawString("ball y: " + String.valueOf(ball.y), 1, 10);
+            g.drawString("ball x: " + String.valueOf(ball.x), 1, 20);
+            g.drawString("speedY: " + String.valueOf(ball.motionY), 1, 30);
+            g.drawString("speedX: " + String.valueOf(ball.motionX), 1, 40);
+            g.drawString("Score: " + String.valueOf(ship.score), 1, 50);
 
         }
 
@@ -141,7 +145,7 @@ public class Ricochet implements ActionListener, KeyListener {
                 gameStatus = 2;
             }
 
-            else if (gameStatus == 2) {
+            else if (gameStatus == 2 || gameStatus == 4) {
                 gameStatus = 1;
             }
 
@@ -149,14 +153,23 @@ public class Ricochet implements ActionListener, KeyListener {
                 gameStatus = 2;
             }
 
+            else if (gameStatus == 3) {
+                start();
+                gameStatus = 2;
+            }
+
         }
 
         if (id == KeyEvent.VK_1) {
-                gameStatus = 4;
 
-                if (gameStatus == 4) {
-                    gameStatus = 2;
-                }
+            if (gameStatus == 2){
+                gameStatus = 4;
+            }
+
+            else if (gameStatus == 4) {
+                gameStatus =2;
+            }
+
         }
 
     }

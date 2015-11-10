@@ -7,7 +7,7 @@ public class ball{
 
     public int motionX, motionY;
 
-    public int speed = 5;
+    public int speedball = 2;
 
     public Random random;
 
@@ -15,7 +15,7 @@ public class ball{
         this.random = new Random();
         this.x = ricochet.width / 2 - this.width / 2 - 15;
         this.y = ricochet.height / 2 - this.height / 2 - 39;
-        this.motionY = speed;
+        this.motionY = speedball;
         this.motionX = 0;
 
 
@@ -23,30 +23,25 @@ public class ball{
 
     public void update(Ship ship){
 
-        if (ship.score > 5) {
-            speed = 10;
+        if (ship.score > 5 && ship.score <= 10) {
+            speedball = 3;
         }
-        else if (ship.score > 10) {
-            speed = 15;
+        else if (ship.score > 10 && ship.score <= 20) {
+            speedball = 4;
         }
-        else if (ship.score > 20) {
-            speed = 20;
+        else if (ship.score > 20 && ship.score <= 30) {
+            speedball = 6;
         }
         else if (ship.score > 40) {
-            speed = 25;
-        }
-        else if (ship.score > 60) {
-            speed = 30;
-        }
-        else if (ship.score > 100) {
-            speed = 40;
+            speedball = 10;
+            ship.speed = 10;
         }
 
         if(checkCollision(ship) == 1 ){
-            this.motionY = -speed;
-                this.motionX = -4 + random.nextInt(8);
+            this.motionY = -speedball;
+                this.motionX = -3 + random.nextInt(6);
                 if (this.motionX == 0) {
-                    motionX = 2;
+                    motionX = random.nextInt(4);
                 }
 
 
@@ -54,7 +49,7 @@ public class ball{
         }
 
         else if(checkCollision(ship) == 2){
-            this.motionY = speed;
+            this.motionY = speedball;
         }
 
         else if(checkCollision(ship) == 3){
@@ -83,7 +78,7 @@ public class ball{
             return 3;
         }
 
-        else if (ship.y < this.y){
+        else if (ship.y < this.y || this.y > 600){
             return 4;
         }
 

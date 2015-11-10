@@ -7,6 +7,8 @@ public class Ship{
 
     public int x, y, width = 100, height = 10;
 
+    public int speed = 5;
+
     public Ship(Ricochet ricochet) {
         this.x = ricochet.width / 2 - width / 2 - 15;
         this.y = ricochet.height - height - 39;
@@ -21,7 +23,6 @@ public class Ship{
 
     public void move(boolean left) {
 
-        int speed = 5;
 
         if (left){
             if(x > 0){
