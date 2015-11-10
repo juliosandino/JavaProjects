@@ -12,13 +12,12 @@ public class ball{
     public Random random;
 
     public ball(Ricochet ricochet){
+
         this.random = new Random();
         this.x = ricochet.width / 2 - this.width / 2 - 15;
         this.y = ricochet.height / 2 - this.height / 2 - 39;
         this.motionY = speedBall;
         this.motionX = 0;
-
-
     }
 
     public void update(Ship ship){
@@ -39,10 +38,10 @@ public class ball{
 
         if(checkCollision(ship) == 1 ){
             this.motionY = -speedBall;
-                this.motionX = -3 + random.nextInt(6);
-                if (this.motionX == 0) {
-                    motionX = random.nextInt(4);
-                }
+            this.motionX = -3 + random.nextInt(6);
+            if (this.motionX == 0) {
+                motionX = random.nextInt(4);
+            }
 
 
             ship.score++;
@@ -87,9 +86,9 @@ public class ball{
 
 
     public void render(Graphics2D g){
+
         g.setColor(Color.WHITE);
         g.fillOval(x, y, width, height);
-
     }
 
 }

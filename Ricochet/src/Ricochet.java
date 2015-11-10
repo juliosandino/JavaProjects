@@ -29,7 +29,6 @@ public class Ricochet implements ActionListener, KeyListener {
         JFrame frame = new JFrame("Ricochet");
         render = new Renderer();
 
-
         frame.setSize(width, height);
         frame.setVisible(true);
         frame.add(render);
@@ -64,6 +63,7 @@ public class Ricochet implements ActionListener, KeyListener {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         if (gameStatus == 0) {
+
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, 50));
             g.drawString("RICOCHET" , width / 2 - 140, height / 2 - 100);
@@ -73,27 +73,30 @@ public class Ricochet implements ActionListener, KeyListener {
         }
 
         if (gameStatus == 2 || gameStatus == 1 || gameStatus == 4) {
+
             ship.render(g);
             ball.render(g);
         }
 
         if (gameStatus == 1) {
+
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, 50));
             g.drawString("PAUSED" , width / 2 - 110, height / 2 - 100);
         }
 
         if (gameStatus == 3){
+
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, 50));
             g.drawString("GAME OVER" , width / 2 - 160, height / 2 - 100);
 
             g.setFont(new Font("Arial", 1, 30));
             g.drawString("FINAL SCORE:      " + ship.score, width / 2 - 145, height / 2);
-
         }
 
         if (gameStatus == 4){
+
             g.setColor(Color.WHITE);
             g.setFont(new Font("Arial", 1, 10));
             g.drawString("ball y: " + String.valueOf(ball.y), 1, 10);
@@ -101,7 +104,6 @@ public class Ricochet implements ActionListener, KeyListener {
             g.drawString("speedY: " + String.valueOf(ball.motionY), 1, 30);
             g.drawString("speedX: " + String.valueOf(ball.motionX), 1, 40);
             g.drawString("Score: " + String.valueOf(ship.score), 1, 50);
-
         }
 
     }
